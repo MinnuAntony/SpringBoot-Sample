@@ -4,8 +4,7 @@ pipeline {
 
     agent any
 
-    parameters{
-
+    parameters {
         choice(
             name: 'action',
             choices: 'create\ndelete',
@@ -13,16 +12,14 @@ pipeline {
         )
     }
 
-    stages{
+    stages {
 
-        when { expression { params.action == 'create' } }
-        
         stage('Git Checkout') {
-
-            steps{
+            when { expression { params.action == 'create' } } // ✅ inside stage
+            steps {
                 gitCheckout(
-                branch: "main",
-                url: "https://github.com/MinnuAntony/SpringBoot-Sample"
+                    branch: "main",
+                    url: "https://github.com/MinnuAntony/SpringBoot-Sample"
                 )
             }           
         }
@@ -38,16 +35,18 @@ pipeline {
         //     }
         // }
 
-        stage('Integration Test maven'){
 
-
-            steps{
-               script{
-                   
-                   mvnIntegrationTest()
-               }
+        stage('Integration Test maven') {
+            when { expression { params.action == 'create' } } // ✅ inside stage
+            steps {
+                script {
+                    mvnIntegrationTest()
+                }
             }
         }
     }
 }
-   
+
+
+    
+        
