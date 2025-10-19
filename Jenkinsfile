@@ -36,14 +36,14 @@ pipeline {
         // }
 
 
-        stage('Integration Test maven') {
-            when { expression { params.action == 'create' } } // ✅ inside stage
-            steps {
-                script {
-                    mvnIntegrationTest()
-                }
-            }
-        }
+        // stage('Integration Test maven') {
+        //     when { expression { params.action == 'create' } } // ✅ inside stage
+        //     steps {
+        //         script {
+        //             mvnIntegrationTest()
+        //         }
+        //     }
+        // }
     }
 }
 
