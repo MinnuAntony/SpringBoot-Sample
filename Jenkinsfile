@@ -15,7 +15,7 @@ pipeline {
     stages {
 
         stage('Git Checkout') {
-            when { expression { params.action == 'create' } } // ✅ inside stage
+            when { expression { params.action == 'create' } } 
             steps {
                 gitCheckout(
                     branch: "main",
@@ -24,26 +24,26 @@ pipeline {
             }           
         }
 
-        // stage('Unit Test maven'){
+        stage('Unit Test maven'){
 
-        //     when { expression { params.action == 'create' } }
-        //     steps{
-        //        script{
+            when { expression { params.action == 'create' } }
+            steps{
+               script{
                    
-        //            mvnTest()
-        //        }
-        //     }
-        // }
+                   mvnTest()
+               }
+            }
+        }
 
 
-        // stage('Integration Test maven') {
-        //     when { expression { params.action == 'create' } } // ✅ inside stage
-        //     steps {
-        //         script {
-        //             mvnIntegrationTest()
-        //         }
-        //     }
-        // }
+        stage('Integration Test maven') {
+            when { expression { params.action == 'create' } } 
+            steps {
+                script {
+                    mvnIntegrationTest()
+                }
+            }
+        }
     }
 }
 
