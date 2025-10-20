@@ -10,7 +10,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.14</version> <!-- Updated for modern Java 17 support -->
+        <version>2.7.14</version>
         <relativePath/>
     </parent>
 
@@ -25,9 +25,10 @@
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring-cloud.version>2021.0.7</spring-cloud.version> <!-- Updated Spring Cloud BOM -->
+        <spring-cloud.version>2021.0.7</spring-cloud.version>
     </properties>
 
+    <!-- Import Spring Cloud BOM -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -53,7 +54,7 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
-        <!-- Spring Cloud Kubernetes Config -->
+        <!-- Spring Cloud Kubernetes Config (no version needed) -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-kubernetes-config</artifactId>
