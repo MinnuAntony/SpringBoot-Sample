@@ -69,8 +69,8 @@ pipeline{
         //     steps{
         //        script{
                    
-        //            def SonarQubecredentialsId = 'sonarqube-api'
-        //            QualityGateStatus(SonarQubecredentialsId)
+        //            def SonarQubecredentialsId = 'sonar-api'
+        //            qualityGateStatus(SonarQubecredentialsId)
         //        }
         //     }
         // }
