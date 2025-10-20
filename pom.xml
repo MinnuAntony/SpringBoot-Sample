@@ -72,6 +72,8 @@
     <configuration>
         <source>17</source>   <!-- or 21, depending on your Jenkins JDK -->
         <target>17</target>
+        <fork>true</fork>
+
         <compilerArgs>
     <arg>--add-opens</arg>
     <arg>jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</arg>
