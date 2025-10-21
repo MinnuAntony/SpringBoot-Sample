@@ -87,6 +87,18 @@ pipeline{
             }
         }
 
+        stage('Docker Image Scan - Trivy'){
+            when { expression { params.action == 'create' } }
+            steps{
+                script{
+                    def imageName = params.ImageName
+                    def imageTag = params.ImageTag
+                    def dockerHubUser = params.DockerHubUser
+                    dockerImageScan(imageName, imageTag, dockerHubUser)
+                }
+            }
+        }
+
         
           
     }
