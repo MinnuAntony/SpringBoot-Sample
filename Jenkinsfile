@@ -110,7 +110,17 @@ pipeline{
             }
         }
 
-        
+        stage('Docker Image Cleanup'){
+            when { expression { params.action == 'create' } }
+            steps{
+                script{
+                    def imageName = params.ImageName
+                    def imageTag = params.ImageTag
+                    def dockerHubUser = params.DockerHubUser
+                    dockerImageClean(imageName, imageTag, dockerHubUser)
+                }
+            }
+        }
           
     }
 }
