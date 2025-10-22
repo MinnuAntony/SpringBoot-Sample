@@ -99,6 +99,18 @@ pipeline{
             }
         }
 
+        stage('Docker image push into ECR'){
+         when { expression {  params.action == 'create' } }
+            steps{
+               script{
+                   def aws_account_id = params.aws_account_id
+                   def region = params.region
+                   def ecr_repoName = params.ecr_repoName
+                   dockerImagePush(aws_account_id, region, ecr_repoName)
+               }
+            }
+        }
+
 
     }
 }
