@@ -24,15 +24,16 @@
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <spring-cloud.version>2021.0.7</spring-cloud.version>
     </properties>
 
-    <!-- ✅ Spring Cloud BOM -->
+    <!-- Spring Cloud BOM for dependency versions -->
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>2021.0.7</version>
+                <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -98,10 +99,6 @@
                 <configuration>
                     <source>17</source>
                     <target>17</target>
-                    <compilerArgs>
-                        <arg>--add-opens</arg>
-                        <arg>jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</arg>
-                    </compilerArgs>
                 </configuration>
             </plugin>
 
