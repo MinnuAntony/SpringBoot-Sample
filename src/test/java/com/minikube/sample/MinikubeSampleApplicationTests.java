@@ -11,6 +11,8 @@ public class MinikubeSampleApplicationTests {
 
 	@Test
 	public void contextLoads() {
+	// Intentionally empty - verifies that the Spring application context loads successfully.
+
 	}
 
 }
