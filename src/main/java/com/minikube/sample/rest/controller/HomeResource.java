@@ -24,12 +24,16 @@ public class HomeResource {
 	@Autowired
 	PropertiesConfig config;
 
+    @Value("${ENV_DEPLOYED:local}")
+	private String environment;
+
     @GetMapping("/data")
     public ResponseEntity<ResponseData> getData() {
         ResponseData responseData = new ResponseData();
         responseData.setId(1);
         responseData.setName(config.getName());
         responseData.setPlace("Hyderabad");
+        responseData.setEnvironment(environment);
         responseData.setValue(config.getTest());
         return new ResponseEntity<>(responseData, HttpStatus.OK);
     }
@@ -40,6 +44,7 @@ public class HomeResource {
         private String name;
         private Integer id;
         private String place;
+        private String environment;
         private String value;
     }
 }
