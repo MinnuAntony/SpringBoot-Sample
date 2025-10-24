@@ -21,11 +21,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/home")
 public class HomeResource {
 
-	@Autowired
-	PropertiesConfig config;
+    private final PropertiesConfig config;
 
-    @Value("${ENV_DEPLOYED:local}")
-	private String environment;
+    private final String environment;
+
+    //Constructor injection
+    public HomeResource(PropertiesConfig config, 
+                        @Value("${ENV_DEPLOYED:local}") String environment) {
+        this.config = config;
+        this.environment = environment;
+    }
+
+	// @Autowired
+	// PropertiesConfig config;
+
+    // @Value("${ENV_DEPLOYED:local}")
+	// private String environment;
 
     @GetMapping("/data")
     public ResponseEntity<ResponseData> getData() {
@@ -48,3 +59,6 @@ public class HomeResource {
         private String value;
     }
 }
+
+
+ 
