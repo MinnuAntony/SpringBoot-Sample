@@ -32,12 +32,7 @@ public class HomeResource {
         this.environment = environment;
     }
 
-	// @Autowired
-	// PropertiesConfig config;
-
-    // @Value("${ENV_DEPLOYED:local}")
-	// private String environment;
-
+	
     @GetMapping("/data")
     public ResponseEntity<ResponseData> getData() {
         ResponseData responseData = new ResponseData();
